@@ -1,0 +1,21 @@
+---
+import WorldIcon from "./icons/World.astro";
+---
+
+<div class="relative group">
+  <WorldIcon />
+  <div
+    class="absolute left-0 flex flex-col group invisible group-hover:visible min-w-10"
+  >
+    <div class="bg-none h-2"></div>
+    <div
+      class="shadow-lg flex flex-col gap-2 bg-white dark:bg-white/50 ring-white/10 rounded-lg px-2 py-1"
+    >
+      <a class="hover:text-yellow-500 dark:hover:text-yellow-400" href="/en"
+        >EN</a
+      >
+      <a class="hover:text-yellow-500 dark:hover:text-yellow-400" href="/">ES</a
+      >
+    </div>
+  </div>
+</div>
