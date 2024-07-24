@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 
-import AboutMe from "@/components/AboutMe.astro";
+import AboutMeEnglish from "@/components/AboutMeEnglish.astro";
 import Briefcase from "@/components/icons/Briefcase.astro";
 import CodeIcon from "@/components/icons/Code.astro";
 import Experience from "@/components/Experience.astro";
@@ -9,45 +9,120 @@ import ProfileCheck from "@/components/icons/ProfileCheck.astro";
 import Projects from "@/components/Projects.astro";
 import SectionContainer from "@/components/SectionContainer.astro";
 import Hero from "@/components/Hero.astro";
+import { TAGS } from "@/components/Projects.astro";
+
+const navItems = [
+  {
+    title: "Experience",
+    label: "experience",
+    url: "/#experience",
+  },
+  {
+    title: "Projects",
+    label: "projects",
+    url: "/#projects",
+  },
+  {
+    title: "About me",
+    label: "about-me",
+    url: "/#sobre-mi",
+  },
+];
+
+const EXPERIENCE = [
+  {
+    date: "Present",
+    title: "Full Stack Developer",
+    company: "Ceibo Digital",
+    description:
+      "I participate in the development of web applications and landing pages both on the front end and back end. I work closely with marketing, design, and management teams to ensure that each application aligns with the client's objectives.",
+  },
+  {
+    date: "March 2021",
+    title: "Consultant",
+    company: "Ceibo Digital",
+    description:
+      "I developed as a consultant managing client relationships in projects involving marketing automation, customer engagement, customer experience, and software development.",
+  },
+  {
+    date: "September - November 2021",
+    title: "Marketing Analyst",
+    company: "Quantikal Performance Agency",
+    description:
+      "Three-month internship where I worked as a marketing analyst, primarily focused on optimizing Search Engine Marketing campaigns.",
+  },
+];
+
+const PROJECTS = [
+  {
+    title: "The Pilarica Lodge",
+    description:
+      "Creation of the website for The Pilarica Lodge, an inn for fishermen in Argentine Patagonia.",
+    link: "https://lapilaricalodge.com.ar/",
+    image: "/projects/pilarica.png",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    github: "",
+  },
+  {
+    title: "Denise Cabins",
+    description:
+      "Building and design of the website for Cabañas Denise, a small tourist accommodation in Villa la Angostura.",
+    link: "https://cab-denise.vercel.app",
+    image: "/projects/cabanas-denise.png",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    github: "",
+  },
+];
 ---
 
 <Layout
   title="Tomás Apochian's Portfolio - Web developer and Business Administration Graduate"
   description="Contact Tomás to create your website or web application."
-/>
-<main class="px-4">
-  <SectionContainer class="py-16 md:py-36">
-    <Hero />
-  </SectionContainer>
-</main>
-<div class="space-y-24">
-  <SectionContainer id="experiencia">
-    <h2
-      class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
-    >
-      <Briefcase class="size-8" />
-      Work experience
-    </h2>
-    <Experience />
-  </SectionContainer>
+  navItems={navItems}
+  about="About"
+  contact="Contact"
+  lang="en"
+>
+  <main class="px-4">
+    <SectionContainer class="py-16 md:py-36">
+      <Hero
+        badgeText="Open to work"
+        greetingsText="Hey, I am Tomás!"
+        highlightedText="Programmer and Bachelor of Business Administration"
+        text="I combine the world of technology with business to create  value-adding solutions."
+        contactMe="Contact me"
+      />
+    </SectionContainer>
+  </main>
+  <div class="space-y-24">
+    <SectionContainer id="experiencia">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+        <Briefcase class="size-8" />
+        Work experience
+      </h2>
+      <Experience experience={EXPERIENCE} />
+    </SectionContainer>
 
-  <SectionContainer id="proyectos">
-    <h2
-      class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
-    >
-      <CodeIcon class="size-7" />
-      Projects
-    </h2>
-    <Projects />
-  </SectionContainer>
+    <SectionContainer id="projects">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+        <CodeIcon class="size-7" />
+        Projects
+      </h2>
+      <Projects projects={PROJECTS} />
+    </SectionContainer>
 
-  <SectionContainer id="sobre-mi">
-    <h2
-      class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
-    >
-      <ProfileCheck class="size-8" />
-      About me
-    </h2>
-    <AboutMe />
-  </SectionContainer>
-</div>
+    <SectionContainer id="sobre-mi">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
+      >
+        <ProfileCheck class="size-8" />
+        About me
+      </h2>
+      <AboutMeEnglish />
+    </SectionContainer>
+  </div>
+</Layout>

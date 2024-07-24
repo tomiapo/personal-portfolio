@@ -1,5 +1,11 @@
 ---
-const currentYear = new Date().getFullYear()
+interface Props {
+  about : string;
+  contact : string;
+}
+
+const {about, contact } = Astro.props;
+
 ---
 
 <footer
@@ -13,11 +19,12 @@ const currentYear = new Date().getFullYear()
       class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
     >
       <li>
-        <a href="/#sobre-mi" class="hover:underline me-4 md:me-6">Sobre mí</a>
+        <a href="/#sobre-mi" class="hover:underline me-4 md:me-6">{about}</a>
       </li>
       <li>
         <a id="contacto" href="mailto:tomasapochian@gmail.com" class="hover:underline"
-          >Contacto</a
+          >{contact}</a
+
         >
       </li>
     </ul>

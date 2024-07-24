@@ -1,20 +1,22 @@
 ---
-import "@fontsource-variable/onest"
-
-import Header from "../components/Header.astro"
-import Footer from "../components/Footer.astro"
-import { ViewTransitions } from "astro:transitions"
-
+import "@fontsource-variable/onest";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
+import type { NavItem } from "../components/Header.astro";
 interface Props {
-  title: string
-  description: string
+  title: string;
+  description: string;
+  navItems: NavItem[];
+  about: string;
+  contact: string;
+  lang : string;
 }
-
-const { description, title } = Astro.props
+const { description, title, navItems, about, contact, lang } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -32,9 +34,9 @@ const { description, title } = Astro.props
       dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
     >
     </div>
-    <Header />
+    <Header navItems={navItems} />
     <slot />
-    <Footer />
+    <Footer about={about} contact={contact} />
     <style is:global>
       :root {
         color-scheme: light dark;

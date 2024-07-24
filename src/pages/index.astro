@@ -1,45 +1,118 @@
 ---
-import Layout from "@/layouts/Layout.astro"
+import Layout from "@/layouts/Layout.astro";
 
-import AboutMe from "@/components/AboutMe.astro"
-import Briefcase from "@/components/icons/Briefcase.astro"
-import CodeIcon from "@/components/icons/Code.astro"
-import Experience from "@/components/Experience.astro"
-import ProfileCheck from "@/components/icons/ProfileCheck.astro"
-import Projects from "@/components/Projects.astro"
-import SectionContainer from "@/components/SectionContainer.astro"
-import Hero from "@/components/Hero.astro"
+import AboutMeSpanish from "@/components/AboutMeSpanish.astro";
+import Briefcase from "@/components/icons/Briefcase.astro";
+import CodeIcon from "@/components/icons/Code.astro";
+import Experience from "@/components/Experience.astro";
+import ProfileCheck from "@/components/icons/ProfileCheck.astro";
+import Projects from "@/components/Projects.astro";
+import SectionContainer from "@/components/SectionContainer.astro";
+import Hero from "@/components/Hero.astro";
+import { TAGS } from "@/components/Projects.astro";
+
+const navItems = [
+  {
+    title: "Experiencia",
+    label: "experiencia",
+    url: "/#experience",
+  },
+  {
+    title: "Proyectos",
+    label: "proyectos",
+    url: "/#projects",
+  },
+  {
+    title: "Sobre mí",
+    label: "sobre-mi",
+    url: "/#sobre-mi",
+  },
+];
+
+const EXPERIENCE = [
+  {
+    date: "Actualmente",
+    title: "Desarrollador Full Stack",
+    company: "Ceibo Digital",
+    description:
+      "Participo en el desarrollo de aplicaciones web y landing pages tanto desde el front como el backend. Trabajo codo a codo con equipos de marketing, diseño y gestión para garantizar que cada aplicación se alinee con los objeetivos del cliente.",
+  },
+  {
+    date: "Marzo 2021",
+    title: "Consultor",
+    company: "Ceibo Digital",
+    description:
+      "Me desarrollé como consultor gestionando la relación con los clientes en proyectos de marketing automation, customer engagement, customer experience y desarrollo de software.",
+  },
+  {
+    date: "Septiembre - Noviembre 2021",
+    title: "Analista de marketing",
+    company: "Quantikal Performance Agency",
+    description:
+      "Pasantía de 3 meses en la que desempeñé como analista de marketing, principalmente orientado a la optimización de campañas de Search Engine Marketing.",
+  },
+];
+
+const PROJECTS = [
+  {
+    title: "La Pilarica Lodge",
+    description:
+      "Creación del sitio web de La Pilarica Lodge, una hostería para pescadores en la Patagonia Argentina.",
+    link: "https://lapilaricalodge.com.ar/",
+    image: "/projects/pilarica.png",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    github: "",
+  },
+  {
+    title: "Cabañas Denise",
+    description:
+      "Armado y diseño del sitio web de Cabañas Denise, un pequeño alojamiento turístico en Villa la Angostura.",
+    link: "https://cab-denise.vercel.app",
+    image: "/projects/cabanas-denise.png",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    github: "",
+  },
+];
 ---
 
 <Layout
   title="Portfolio de Tomás Apochian - Programador y Licenciado en Administración de Empresas"
   description="Contactate con Tomás para crear tu sitio o aplicación web."
+  navItems={navItems}
+  about="Sobre mí"
+  contact="Contacto"
+  lang="es"
 >
   <main class="px-4">
     <SectionContainer class="py-16 md:py-36">
-      <Hero>
-      </slot>
-    </Hero>
+      <Hero
+        badgeText="Disponible para trabajar"
+        greetingsText="Hola, soy Tomás!"
+        highlightedText="Progamador y Licenciado en Administración de Empresas"
+        text="Combino el mundo de la tecnología con los negocios para crear soluciones que agreguen valor."
+        contactMe="Contáctame"
+      />
     </SectionContainer>
-    <div class="space-y-24">
-    <SectionContainer id="experiencia">
+  </main>
+  <div class="space-y-24">
+    <SectionContainer id="experience">
       <h2
         class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
       >
         <Briefcase class="size-8" />
         Experiencia laboral
       </h2>
-      <Experience />
+      <Experience experience={EXPERIENCE} />
     </SectionContainer>
 
-    <SectionContainer id="proyectos">
+    <SectionContainer id="projects">
       <h2
         class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
       >
         <CodeIcon class="size-7" />
         Proyectos
       </h2>
-      <Projects />
+      <Projects projects={PROJECTS} />
     </SectionContainer>
 
     <SectionContainer id="sobre-mi">
@@ -49,8 +122,7 @@ import Hero from "@/components/Hero.astro"
         <ProfileCheck class="size-8" />
         Sobre mí
       </h2>
-      <AboutMe />
+      <AboutMeSpanish />
     </SectionContainer>
   </div>
-  </main>
 </Layout>

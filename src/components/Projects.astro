@@ -5,7 +5,7 @@ import Tailwind from "./icons/Tailwind.astro";
 import Link from "./icons/Link.astro";
 import LinkButton from "./LinkButton.astro";
 
-const TAGS = {
+export const TAGS = {
   NEXT: {
     name: "Next.js",
     class: "bg-black text-white",
@@ -17,6 +17,22 @@ const TAGS = {
     icon: Tailwind,
   },
 };
+
+interface ProjectItem {
+  title: string;
+  description: string;
+  link: string;
+  image: string;
+  tags: { name: string; class: string; icon: Function}[];
+  github: string;
+}
+
+interface Props {
+  projects: ProjectItem[];
+}
+
+const { projects } = Astro.props;
+
 const PROJECTS = [
   {
     title: "La Pilarica Lodge",
@@ -41,7 +57,7 @@ const PROJECTS = [
 
 <div class="flex flex-col gap-y-16">
   {
-    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    projects.map(({ image, title, description, tags, link, github }) => (
       <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
         <div class="w-full md:w-1/2">
           <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">

@@ -1,33 +1,17 @@
 ---
-import ExperienceItem from "./ExperienceItem.astro"
-const EXPERIENCIE = [
-  {
-    date: "Actualmente",
-    title: "Desarrollador Full Stack",
-    company: "Ceibo Digital",
-    description:
-      "Participo en el desarrollo de aplicaciones web y landing pages tanto desde el front como el backend. Trabajo codo a codo con equipos de marketing, diseño y gestión para garantizar que cada aplicación se alinee con los objeetivos del cliente.",
-  },
-  {
-    date: "Marzo 2021",
-    title: "Consultor",
-    company: "Ceibo Digital",
-    description:
-      "Me desarrollé como consultor gestionando la relación con los clientes en proyectos de marketing automation, customer engagement, customer experience y desarrollo de software."
-  },
-  {
-    date: "Septiembre - Noviembre 2021",
-    title: "Analista de marketing",
-    company: "Quantikal Performance Agency",
-    description:
-      "Pasantía de 3 meses en la que desempeñé como analista de marketing, principalmente orientado a la optimización de campañas de Search Engine Marketing.",
-  },
-]
+import ExperienceItem from "./ExperienceItem.astro";
+import type { Props as ExperienceItemProp } from "./ExperienceItem.astro";
+
+interface Props {
+  experience: ExperienceItemProp[];
+}
+
+const { experience } = Astro.props;
 ---
 
 <ol class="relative mt-16">
   {
-    EXPERIENCIE.map((experiencie) => (
+    experience.map((experiencie) => (
       <li class="">
         <ExperienceItem {...experiencie} />
       </li>

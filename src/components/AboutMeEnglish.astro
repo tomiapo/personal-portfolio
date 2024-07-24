@@ -1,0 +1,47 @@
+---
+const personalImageAlt = "Tomás Apochian";
+const year = new Date().getFullYear();
+const age = year - 2000;
+---
+
+<article
+  class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row"
+>
+  <div
+    class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
+  >
+    <p>
+      My name is Tomás, I am {age} years old and I am from Argentina. I have always
+      been interested in technology and web development in particular. Although I initially
+      pursued a different path by becoming a Business Administration graduate, <strong
+        >my passion for programming was always present.</strong
+      >
+    </p>
+
+    <p>
+      During university, subjects related to programming were my favorites, and
+      the idea of dedicating to it professionally was always on my mind.
+    </p>
+
+    <p>
+      After a process of reflection and internal debate, <strong
+        >I decided to make the leap to what really excites me</strong
+      >. I took a course where I learned the basics of programming and then was
+      reassigned to a developer position in the company where I work.
+    </p>
+
+    <p>
+      Since then, I have had the opportunity to participate in several projects,
+      dedicating myself to what I enjoy the most: <strong>programming</strong>.
+    </p>
+  </div>
+
+  <img
+    width="200"
+    height="200"
+    src="/me.jpg"
+    alt={personalImageAlt}
+    class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
+    style="object-position: 50% 50%"
+  />
+</article>
