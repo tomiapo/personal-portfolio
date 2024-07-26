@@ -82,6 +82,7 @@ const PROJECTS = [
   about="Sobre mí"
   contact="Contacto"
   lang="es"
+  pickATheme="Selecciona un tema"
 >
   <main class="px-4">
     <SectionContainer class="py-16 md:py-36">
@@ -93,36 +94,36 @@ const PROJECTS = [
         contactMe="Contáctame"
       />
     </SectionContainer>
+    <div class="space-y-24">
+      <SectionContainer id="experience">
+        <h2
+          class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        >
+          <Briefcase class="size-8" />
+          Experiencia laboral
+        </h2>
+        <Experience experience={EXPERIENCE} />
+      </SectionContainer>
+
+      <SectionContainer id="projects">
+        <h2
+          class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        >
+          <CodeIcon class="size-7" />
+          Proyectos
+        </h2>
+        <Projects projects={PROJECTS} />
+      </SectionContainer>
+
+      <SectionContainer id="sobre-mi">
+        <h2
+          class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
+        >
+          <ProfileCheck class="size-8" />
+          Sobre mí
+        </h2>
+        <AboutMeSpanish />
+      </SectionContainer>
+    </div>
   </main>
-  <div class="space-y-24">
-    <SectionContainer id="experience">
-      <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
-      >
-        <Briefcase class="size-8" />
-        Experiencia laboral
-      </h2>
-      <Experience experience={EXPERIENCE} />
-    </SectionContainer>
-
-    <SectionContainer id="projects">
-      <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
-      >
-        <CodeIcon class="size-7" />
-        Proyectos
-      </h2>
-      <Projects projects={PROJECTS} />
-    </SectionContainer>
-
-    <SectionContainer id="sobre-mi">
-      <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
-      >
-        <ProfileCheck class="size-8" />
-        Sobre mí
-      </h2>
-      <AboutMeSpanish />
-    </SectionContainer>
-  </div>
 </Layout>

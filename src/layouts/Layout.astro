@@ -11,8 +11,9 @@ interface Props {
   about: string;
   contact: string;
   lang : string;
+  pickATheme : string;
 }
-const { description, title, navItems, about, contact, lang } = Astro.props;
+const { description, title, navItems, about, contact, lang, pickATheme } = Astro.props;
 ---
 
 <!doctype html>
@@ -34,7 +35,7 @@ const { description, title, navItems, about, contact, lang } = Astro.props;
       dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
     >
     </div>
-    <Header navItems={navItems} />
+    <Header navItems={navItems} pickATheme={pickATheme} />
     <slot />
     <Footer about={about} contact={contact} />
     <style is:global>

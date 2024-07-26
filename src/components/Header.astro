@@ -3,15 +3,16 @@ import ThemeToggle from "./ThemeToggle.astro";
 import LangDropdown from "./LangDropdown.astro";
 
 export interface NavItem {
-   title: string; 
-   label: string; 
-   url: string ;
-};
+  title: string;
+  label: string;
+  url: string;
+}
 export interface Props {
-  navItems : NavItem[];
-};
+  navItems: NavItem[];
+  pickATheme: string;
+}
 
-const {navItems}  = Astro.props
+const { navItems, pickATheme } = Astro.props;
 ---
 
 <header
@@ -21,7 +22,7 @@ const {navItems}  = Astro.props
     class="flex px-3 text-xs md:text-sm whitespace-nowrap font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
   >
     {
-      navItems.map((link : NavItem) => (
+      navItems.map((link: NavItem) => (
         <a
           class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
           aria-label={link.label}
@@ -32,7 +33,7 @@ const {navItems}  = Astro.props
       ))
     }
     <div class="flex gap-2 items-center">
-      <ThemeToggle/>
+      <ThemeToggle pickATheme={pickATheme} />
       <LangDropdown />
     </div>
   </nav>

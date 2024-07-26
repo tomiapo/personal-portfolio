@@ -42,7 +42,7 @@ const EXPERIENCE = [
     title: "Consultant",
     company: "Ceibo Digital",
     description:
-      "I developed as a consultant managing client relationships in projects involving marketing automation, customer engagement, customer experience, and software development.",
+      "I worked as a consultant by managing client relationships in projects involving marketing automation, customer engagement, customer experience, and software development.",
   },
   {
     date: "September - November 2021",
@@ -82,6 +82,7 @@ const PROJECTS = [
   about="About"
   contact="Contact"
   lang="en"
+  pickATheme="Select a theme"
 >
   <main class="px-4">
     <SectionContainer class="py-16 md:py-36">
@@ -93,36 +94,36 @@ const PROJECTS = [
         contactMe="Contact me"
       />
     </SectionContainer>
+    <div class="space-y-24">
+      <SectionContainer id="experiencia">
+        <h2
+          class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        >
+          <Briefcase class="size-8" />
+          Work experience
+        </h2>
+        <Experience experience={EXPERIENCE} />
+      </SectionContainer>
+
+      <SectionContainer id="projects">
+        <h2
+          class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        >
+          <CodeIcon class="size-7" />
+          Projects
+        </h2>
+        <Projects projects={PROJECTS} />
+      </SectionContainer>
+
+      <SectionContainer id="sobre-mi">
+        <h2
+          class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
+        >
+          <ProfileCheck class="size-8" />
+          About me
+        </h2>
+        <AboutMeEnglish />
+      </SectionContainer>
+    </div>
   </main>
-  <div class="space-y-24">
-    <SectionContainer id="experiencia">
-      <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
-      >
-        <Briefcase class="size-8" />
-        Work experience
-      </h2>
-      <Experience experience={EXPERIENCE} />
-    </SectionContainer>
-
-    <SectionContainer id="projects">
-      <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
-      >
-        <CodeIcon class="size-7" />
-        Projects
-      </h2>
-      <Projects projects={PROJECTS} />
-    </SectionContainer>
-
-    <SectionContainer id="sobre-mi">
-      <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
-      >
-        <ProfileCheck class="size-8" />
-        About me
-      </h2>
-      <AboutMeEnglish />
-    </SectionContainer>
-  </div>
 </Layout>
