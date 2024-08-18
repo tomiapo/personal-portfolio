@@ -1,8 +1,7 @@
 import { defineConfig } from 'astro/config'
 import tailwind from "@astrojs/tailwind"
 import robotsTxt from "astro-robots-txt"
-import vercel from '@astrojs/vercel/serverless';
-
+import vercelStatic from '@astrojs/vercel/static';
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,8 +11,10 @@ export default defineConfig({
     defaultLocale: 'es',
     locales: ["es", "en"]
   },
-  output: 'server',
-  adapter: vercel({
-    webAnalytics: { enabled: true }
-  }),
+  output : 'static',
+  adapter : vercelStatic({
+    webAnalytics : {
+      enabled : true
+    },
+  })
 })
